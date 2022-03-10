@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="admin/layout/index" template="/views/site/admin/layout/index.jsp">
+        <put-attribute name="navbarAdmin" value="/views/site/admin/layout/_navbar.jsp"/>
+        <put-attribute name="sidebarAdmin" value="/views/site/admin/layout/_sidenav.jsp"/>
+        <put-attribute name="bodyAdmin" value=""/>
+        <put-attribute name="footerAdmin" value="/views/site/admin/layout/_footer.jsp"/>
+    </definition>
+    <definition name="*/*/*" extends="admin/layout/index">
+        <put-attribute name="bodyAdmin" value="/views/site/{1}/{2}/{3}.jsp"/>
+    </definition>
+    <definition name="web.user" template="/views/site/layout/index.jsp">
+        <put-attribute name="header" value="/views/site/layout/_header.jsp"/>
+        <put-attribute name="menu" value="/views/site/layout/_menu.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/views/site/layout/_footer.jsp"/>
+    </definition>
+    <definition name="*/*" extends="web.user">
+        <put-attribute name="body" value="/views/site/{1}/{2}.jsp"/>
+    </definition>
+</tiles-definitions>
